@@ -42,7 +42,7 @@ module.exports = {
     //     ]
     // }),
     // new HTMLWebpackPlugin({
-    //     title: "vocalizer"
+    //     title: ""
     // })
   ],
 };

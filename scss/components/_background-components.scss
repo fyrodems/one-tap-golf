@@ -1,0 +1,18 @@
+.grass,
+.ground {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.ground {
+  height: 40px;
+  bottom: 0;
+  background-image: url("../images/tile_ground_down_01.png");
+}
+
+.grass {
+  height: 128px;
+  bottom: 40px;
+  background-image: url("../images/tile_ground01.png");
+}

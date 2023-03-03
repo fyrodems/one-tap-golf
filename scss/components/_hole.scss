@@ -1,0 +1,49 @@
+.hole {
+  position: absolute;
+  width: 128px;
+  height: 73px;
+  bottom: 95px;
+  left: 500px;
+  background-image: url("../images/object_hole.png");
+  background-repeat: no-repeat;
+  z-index: 0;
+
+  .stick {
+    position: absolute;
+    width: 18px;
+    height: 254px;
+    bottom: 73px;
+    left: 55px;
+    background-image: url("../images/object_flag_stick.png");
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .flag {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    bottom: 220px;
+    left: 73px;
+    animation: flagMove1 0.5s infinite, flagMove2 0.5s infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes flagMove1 {
+  0% {
+    display: none;
+  }
+  100% {
+    background-image: url("../images/object_flag_anim02.png");
+  }
+}
+
+@keyframes flagMove2 {
+  0% {
+    background-image: url("../images/object_flag_anim01.png");
+  }
+  100% {
+    display: none;
+  }
+}

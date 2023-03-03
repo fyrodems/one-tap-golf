@@ -1,0 +1,15 @@
+#canvas,
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 168px);
+  // transform: translate(-50%, -50%);
+}
+
+#canvas {
+  background-image: url("../images/background.png");
+  // background-position-y: -150px;
+  background-repeat: repeat-x;
+  background-size: cover;
+  // z-index: 0;
+}

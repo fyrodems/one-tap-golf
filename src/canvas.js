@@ -1,13 +1,13 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-// const ctx1 = canvas.getContext("2d");
+const ctx1 = canvas.getContext("2d");
 
 function createCanvas() {
   ctx.fillStyle = "rgba(0, 0, 0, 1)";
   //canvas dimensions
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight - 168;
-  console.log("create canvas");
+  console.log(ctx);
 }
 
 function clearCanvasView() {
@@ -20,4 +20,4 @@ function drawImage(context, image, valueX, valueY) {
 
 createCanvas();
 
-export { createCanvas, clearCanvasView, drawImage };
+export { ctx, ctx1, createCanvas, clearCanvasView, drawImage };

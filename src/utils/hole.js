@@ -1,5 +1,5 @@
 const generateLeftPositionForHole =
-  Math.floor(Math.random() * (700 - 250 + 1)) + 250;
+  Math.floor(Math.random() * (window.innerWidth - 500)) + 400;
 
 const addHole = () => {
   const hole = document.querySelector(".hole");

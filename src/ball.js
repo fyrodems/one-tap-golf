@@ -1,7 +1,7 @@
 import shootingPath from "./shotingPath";
 import utilities from "./utilities";
 import interfaceView from "./interfaceView";
-import golfHole from "./golfHole";
+// import golfHole from "./golfHole";
 import gameControler from "./gameControler";
 
 function setVelocityBallFlight(player) {

@@ -6,4 +6,4 @@ const addHole = () => {
   hole.style.left = generateLeftPositionForHole + "px";
 };
 
-export { generateLeftPositionForHole, addHole };
+export default addHole;

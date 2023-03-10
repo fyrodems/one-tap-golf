@@ -4,9 +4,6 @@ import interfaceView from "./interfaceView";
 import golfHole from "./golfHole";
 import gameControler from "./gameControler";
 
-export const ball = new Image();
-ball.src = require("/src/assets/object_ball.png");
-
 function setVelocityBallFlight(player) {
   shootingPath.pointXOfParabola += player.velocityBall;
   shootingPath.y += player.velocityBall;

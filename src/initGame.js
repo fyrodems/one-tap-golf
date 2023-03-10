@@ -1,6 +1,6 @@
 import shootingPath from "./shotingPath";
 import playerBall from "./playerBall";
-import gameController from "./gameControler";
+// import gameController from "./gameControler";
 
 class InitEvents {
   init() {

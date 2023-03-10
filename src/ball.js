@@ -1,8 +1,8 @@
 import shootingPath from "./shotingPath";
-import utilities from "./utilities";
 import interfaceView from "./interfaceView";
-// import golfHole from "./golfHole";
 import gameControler from "./gameControler";
+import { clearCanvasView, drawImage, ctx } from "./canvas";
+import { ball } from "./utils/images";
 
 function setVelocityBallFlight(player) {
   shootingPath.pointXOfParabola += player.velocityBall;
@@ -14,18 +14,11 @@ function getBallFinalFlight(player) {
     getBallFinalFlight(player);
   });
 
-  //set ball velocity
   setVelocityBallFlight(player);
-
-  utilities.clearCanvasView();
+  clearCanvasView();
   interfaceView.pointsCounterView();
   shootingPath.calculateFlightPoints();
-  utilities.drawImage(
-    utilities.ctx,
-    ball,
-    shootingPath.pointXOfParabola,
-    shootingPath.y
-  );
+  drawImage(ctx, ball, shootingPath.pointXOfParabola, shootingPath.y);
   player.ballIsFlyingNow = true;
   gameControler.controlGameStep();
 }
@@ -64,13 +57,5 @@ function Player() {
 }
 
 const playerBall = Player();
-window.onload = function () {
-  utilities.drawImage(
-    utilities.ctx,
-    ball,
-    shootingPath.startPosOfBall,
-    shootingPath.groundLevel
-  );
-};
 
 export default playerBall;

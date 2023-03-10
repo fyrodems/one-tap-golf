@@ -1,6 +1,4 @@
 import shootingPath from "./shotingPath";
-// import golfHole from "./golfHole";
-// import interfaceView from "./interfaceView";
 import playerBall, { ball } from "./playerBall";
 import { drawImage, ctx } from "./canvas";
 import { resetPoints, increaseActualScore, gameOverView } from "./gameHandlers";

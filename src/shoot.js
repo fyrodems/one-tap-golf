@@ -5,9 +5,6 @@ import initEvents from "./initEvents";
 import interfaceView from "./interfaceView";
 import gameControler from "./gameControler";
 
-const dot = new Image();
-dot.src = require("/src/assets/object_dot.png");
-
 class Path {
   constructor() {
     this.a = 0.003;

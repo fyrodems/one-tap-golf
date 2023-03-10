@@ -2,7 +2,6 @@ import { clearCanvasView } from "./canvas";
 import { ctx, ctx1 } from "./canvas";
 
 const actualScore = 0;
-// let loadedWindow = false;
 
 function increaseActualScore() {
   clearCanvasView();
@@ -13,7 +12,7 @@ function increaseActualScore() {
 function pointsCounterView() {
   ctx.font = "bolder 80px Arial";
   ctx.fillStyle = "yellow";
-  ctx.fillText(actualScore, 780, 100);
+  ctx.fillText(actualScore, window.innerWidth - 100, 100);
 }
 
 function resetPoints() {
@@ -40,6 +39,12 @@ function gameOverView() {
 }
 
 pointsCounterView();
-pressButtonToStart();
+// pressButtonToStart();
 
-export { increaseActualScore, resetPoints, gameOverView, pointsCounterView };
+export {
+  increaseActualScore,
+  resetPoints,
+  gameOverView,
+  pointsCounterView,
+  pressButtonToStart,
+};

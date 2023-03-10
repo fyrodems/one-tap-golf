@@ -1,7 +1,7 @@
-import { clearCanvasView } from "./canvas";
-import { ctx, ctx1 } from "./canvas";
+import { clearCanvasView } from "../utils/canvas";
+import { ctx, ctx1 } from "../utils/canvas";
 
-const actualScore = 0;
+let actualScore = 0;
 
 function increaseActualScore() {
   clearCanvasView();

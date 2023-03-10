@@ -1,8 +1,8 @@
-import shootingPath from "./path";
-import playerBall from "./ball";
+import shootingPath from "../path/pathCreation";
+import player from "./player";
 
-const drawPath = () => {
-  if (playerBall.ballIsFlyingNow) return;
+const drawPathAndFlightBall = () => {
+  if (player.ballIsFlyingNow) return;
   shootingPath.updateFlightPath();
 };
 
@@ -11,20 +11,20 @@ function initEvents() {
     if (!e.keyCode === 32) return;
     document.addEventListener("mousedown", () => {
       setInterval(() => {
-        shootingPath.updateFlightPath();
-      }, 300);
+        drawPathAndFlightBall();
+      }, 50);
     });
     document.addEventListener("mouseup", () => {
-      playerBall.flyingBall();
+      player.flyingBall();
     });
-    //   if (e.keyCode === 32 && !playerBall.ballIsFlyingNow) {
+    //   if (e.keyCode === 32 && !player.ballIsFlyingNow) {
     //     shootingPath.updateFlightPath();
     //   }
     // }
 
     // function keyUpHandler(e) {
-    //   if (e.keyCode === 32 && !playerBall.ballIsFlyingNow) {
-    //     playerBall.flyingBall();
+    //   if (e.keyCode === 32 && !player.ballIsFlyingNow) {
+    //     player.flyingBall();
     //   }
   }
 

@@ -1,5 +1,5 @@
 import { drawImage, ctx, clearCanvasView } from "./canvas";
-// import playerBall from "./playerBall";
+import playerBall from "./ball";
 import { ball, dot } from "./utils/images";
 import { pointsCounterView } from "./gameHandlers";
 
@@ -34,7 +34,7 @@ class Path {
 
   recalculateParabolaToFinalFlight() {
     this.calculateShotPath(this.parabolaFinalDistance);
-    // playerBall.getBallFinalFlight();
+    playerBall.getBallFinalFlight();
   }
 
   resetVelocityAfterGameOverToInitState() {

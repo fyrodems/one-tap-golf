@@ -2,7 +2,7 @@ import { clearCanvasView } from "./canvas";
 import { ctx, ctx1 } from "./canvas";
 
 const actualScore = 0;
-let loadedWindow = false;
+// let loadedWindow = false;
 
 function increaseActualScore() {
   clearCanvasView();
@@ -42,4 +42,4 @@ function gameOverView() {
 pointsCounterView();
 pressButtonToStart();
 
-export { increaseActualScore, resetPoints, gameOverView };
+export { increaseActualScore, resetPoints, gameOverView, pointsCounterView };

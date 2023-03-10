@@ -2,7 +2,7 @@ import "../scss/main.scss";
 import addHole from "./utils/hole";
 import { ball } from "./utils/images";
 import { createCanvas, drawImage, ctx } from "./canvas";
-import shootingPath from "./shoot";
+import shootingPath from "./path";
 // import { pressButtonToStart } from "./gameHandlers";
 
 addHole();

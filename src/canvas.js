@@ -14,6 +14,9 @@ function clearCanvasView() {
 
 function drawImage(context, image, valueX, valueY) {
   context.drawImage(image, valueX, valueY, image.width, image.height);
+  console.log(image);
+  console.log(valueX, valueY);
+  console.log(image.width, image.height);
 }
 
 createCanvas();

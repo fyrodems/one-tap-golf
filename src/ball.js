@@ -1,8 +1,10 @@
-import shootingPath from "./shotingPath";
-import interfaceView from "./interfaceView";
-import gameControler from "./gameControler";
+import shootingPath from "./path";
+// import interfaceView from "./interfaceView";
+// import gameControler from "./gameControler";
 import { clearCanvasView, drawImage, ctx } from "./canvas";
 import { ball } from "./utils/images";
+import { pointsCounterView } from "./gameHandlers";
+// import controlGameStep
 
 function setVelocityBallFlight(player) {
   shootingPath.pointXOfParabola += player.velocityBall;
@@ -16,11 +18,11 @@ function getBallFinalFlight(player) {
 
   setVelocityBallFlight(player);
   clearCanvasView();
-  interfaceView.pointsCounterView();
+  pointsCounterView();
   shootingPath.calculateFlightPoints();
   drawImage(ctx, ball, shootingPath.pointXOfParabola, shootingPath.y);
   player.ballIsFlyingNow = true;
-  gameControler.controlGameStep();
+  // gameControler.controlGameStep();
 }
 
 function flyingBall() {

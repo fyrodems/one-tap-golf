@@ -1,6 +1,6 @@
 import { drawImage, ctx, clearCanvasView } from "./canvas";
 // import playerBall from "./playerBall";
-// import { ball } from "./playerBall";
+import { ball, dot } from "./utils/images";
 import { pointsCounterView } from "./gameHandlers";
 
 class Path {

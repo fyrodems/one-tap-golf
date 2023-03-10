@@ -25,7 +25,7 @@ export default () => {
   // check collision with hole else game over
   if (
     500 < shootingPath.y &&
-    shootingPath.y < 700 &&
+    shootingPath.y < 720 &&
     shootingPath.pointXOfParabola > holePosition - 30 &&
     shootingPath.pointXOfParabola < holePosition + 80
   ) {
@@ -37,11 +37,11 @@ export default () => {
     player.ballIsFlyingNow = false;
   }
 
-  // if (shootingPath.y > 500 && shootingPath.y < 550) {
-  //   cancelAnimationFrame(player.animationFlyingBall);
-  //   resetPoints();
-  //   gameOverView();
-  //   shootingPath.resetVelocityAfterGameOverToInitState();
-  //   player.ballIsFlyingNow = false;
-  // }
+  if (!(500 < shootingPath.y && shootingPath.y < 720)) {
+    cancelAnimationFrame(player.animationFlyingBall);
+    resetPoints();
+    gameOverView();
+    shootingPath.resetVelocityAfterGameOverToInitState();
+    player.ballIsFlyingNow = false;
+  }
 };

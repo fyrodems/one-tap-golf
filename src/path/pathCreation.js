@@ -72,9 +72,9 @@ class Path {
     this.parabolaTopPoint = this.b * this.b - 4 * this.a * this.c;
     clearCanvasView();
     this.calculateShotPath(this.startDrawingRangeOfPath);
-    let i = this.startPosOfBall;
-    while (i < this.startDrawingRangeOfPath) {
-      i++;
+    let pointX = this.startPosOfBall;
+    while (pointX < this.startDrawingRangeOfPath) {
+      pointX++;
       this.pointXOfParabola += 50;
       this.calculateFlightPoints();
       drawImage(ctx, dot, this.pointXOfParabola + 10, this.y + 10);

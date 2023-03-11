@@ -12,7 +12,6 @@ import { ball } from "../utils/images";
 export default () => {
   shootingPath.parabolaTopPoint = -5;
   const holePosition = document.querySelector(".hole").offsetLeft;
-  console.log(shootingPath.y);
 
   if (shootingPath.y < 0) {
     cancelAnimationFrame(player.animationFlyingBall);

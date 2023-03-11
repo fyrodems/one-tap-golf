@@ -8,7 +8,7 @@ const drawPathAndFlightBall = () => {
 
 function initEvents() {
   function keyDownHandler(e) {
-    if (e.keyCode !== 32 || player.ballIsFlyingNow) return;
+    if (player.ballIsFlyingNow) return;
     let interval = setInterval(() => {
       console.log("%cinterval", "color: blue");
       drawPathAndFlightBall();
@@ -23,18 +23,29 @@ function initEvents() {
       },
       { once: true }
     );
-    //   if (e.keyCode === 32 && !player.ballIsFlyingNow) {
-    //     shootingPath.updateFlightPath();
-    //   }
-    // }
-
-    // function keyUpHandler(e) {
-    //   if (e.keyCode === 32 && !player.ballIsFlyingNow) {
-    //     player.flyingBall();
-    //   }
   }
 
-  document.addEventListener("keydown", keyDownHandler);
+  // function mouseDownHandler(e) {
+  //   e.preventDefault();
+  //   document.addEventListener("mousemove", drawPathAndFlightBall);
+  // }
+
+  // function mouseUpHandler(e) {
+  //   e.preventDefault();
+  //   document.removeEventListener("mousemove", drawPathAndFlightBall);
+  // }
+
+  document.addEventListener("mousedown", keyDownHandler);
+  // document.addEventListener("mouseup", mouseUpHandler);
 }
+//   if (e.keyCode === 32 && !player.ballIsFlyingNow) {
+//     shootingPath.updateFlightPath();
+//   }
+// }
+
+// function keyUpHandler(e) {
+//   if (e.keyCode === 32 && !player.ballIsFlyingNow) {
+//     player.flyingBall();
+//   }
 
 export default initEvents;

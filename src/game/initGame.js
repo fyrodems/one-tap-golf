@@ -8,10 +8,17 @@ const drawPathAndFlightBall = () => {
 
 function initEvents() {
   function keyDownHandler(e) {
-    if (!e.keyCode === 32) return;
+    if (!e.keyCode === 32 && player.ballIsFlyingNow) return;
     document.addEventListener("mousedown", () => {
-      setInterval(() => {
+      const interwal = setInterval(() => {
+        console.log("%cinterwal", "color: blue");
         drawPathAndFlightBall();
+
+        document.addEventListener("mouseup", () => {
+          console.log("%cclear interwal", "color: red");
+
+          clearInterval(interwal);
+        });
       }, 50);
     });
     document.addEventListener("mouseup", () => {
@@ -29,7 +36,6 @@ function initEvents() {
   }
 
   document.addEventListener("keydown", keyDownHandler);
-  // document.addEventListener("keyup", keyUpHandler);
 }
 
 export default initEvents;

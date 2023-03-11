@@ -12,7 +12,7 @@ function increaseActualScore() {
 function pointsCounterView() {
   ctx.font = "bolder 80px Arial";
   ctx.fillStyle = "yellow";
-  ctx.fillText(actualScore, window.innerWidth - 100, 100);
+  ctx.fillText(actualScore, ctx.canvas.width - 100, 100);
 }
 
 function resetPoints() {
@@ -24,13 +24,13 @@ function resetPoints() {
 function pressButtonToStart() {
   ctx1.font = "bolder 40px Arial";
   ctx.fillStyle = "yellow";
-  ctx.fillText("press Space to start", 250, 250);
+  ctx.fillText("press Space to start", ctx.canvas.width / 2 - 230, 250);
 }
 
 function addGameOverText() {
   ctx1.font = "bolder 100px Arial";
   ctx.fillStyle = "yellow";
-  ctx.fillText("GAME OVER", 120, 200);
+  ctx.fillText("GAME OVER", ctx.canvas.width / 2 - 340, 200);
 }
 
 function gameOverView() {

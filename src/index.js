@@ -13,4 +13,5 @@ pressButtonToStart();
 setTimeout(() => {
   drawImage(ctx, ball, shootingPath.startPosOfBall, shootingPath.groundLevel);
   initEvents();
+  // gameOverView();
 }, 500);

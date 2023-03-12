@@ -3,7 +3,7 @@ import { ball, dot } from "../utils/images";
 import { pointsCounterView } from "../game/gameViews";
 import player from "../game/player";
 
-class Path {
+class Parabola {
   constructor() {
     this.a = 0.003;
     this.groundLevel = window.innerHeight - 225;
@@ -84,5 +84,5 @@ class Path {
   }
 }
 
-let shootingPath = new Path();
-export default shootingPath;
+let parabola = new Parabola();
+export default parabola;

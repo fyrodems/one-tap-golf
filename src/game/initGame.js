@@ -6,23 +6,23 @@ const drawPathAndFlightBall = () => {
   parabola.drawFlightPath();
 };
 
-function initEvents() {
-  function keyDownHandler(e) {
+const initEvents = () => {
+  const keyDownHandler = () => {
     if (player.ballIsFlyingNow) return;
     const interval = setInterval(() => {
       drawPathAndFlightBall();
     }, 50);
 
-    function handleMouseUp() {
+    const handleMouseUp = () => {
       clearInterval(interval);
       player.flyingBall();
       document.removeEventListener("mouseup", handleMouseUp);
-    }
+    };
 
     document.addEventListener("mouseup", handleMouseUp, { once: true });
-  }
+  };
 
   document.addEventListener("mousedown", keyDownHandler);
-}
+};
 
 export default initEvents;

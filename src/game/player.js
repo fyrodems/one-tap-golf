@@ -8,19 +8,17 @@ const Player = () => {
   const player = {
     animationFlyingBall: null,
     ballIsFlyingNow: false,
-    setVelocityBallFlight: () => {
-      setVelocityBallFlight(player);
-    },
+    setVelocityBallFlight: () => setVelocityBallFlight(),
     getBallFinalFlight: () => {
       getBallFinalFlight(player);
     },
-    flyingBall: () => {
-      flyingBall();
-    },
+    flyingBall: () => flyingBall(),
   };
 
   return player;
 };
+
+const player = Player();
 
 const setVelocityBallFlight = () => {
   parabola.pointXOfParabola += 10;
@@ -32,7 +30,7 @@ const getBallFinalFlight = (player) => {
     getBallFinalFlight(player);
   });
 
-  setVelocityBallFlight(player);
+  setVelocityBallFlight();
   clearCanvasView();
   pointsCounterView();
   parabola.calculateFlightPoints();
@@ -47,7 +45,5 @@ const flyingBall = () => {
   parabola.recalculateParabola();
   parabola.increaseSpeed();
 };
-
-const player = Player();
 
 export default player;

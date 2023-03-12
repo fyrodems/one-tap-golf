@@ -1,9 +1,9 @@
-import addHole from "../utils/hole";
 import parabola from "./parabolaCreation";
-import player from "../game/player";
 import { drawImage, ctx } from "../utils/canvas";
-import { resetPoints, incresePoints, gameOverView } from "../game/gameViews";
+import addHole from "../utils/hole";
 import { ball } from "../utils/images";
+import player from "../game/player";
+import { resetPoints, incresePoints, gameOverView } from "../game/gameViews";
 
 export default () => {
   parabola.parabolaTopPoint = -5;

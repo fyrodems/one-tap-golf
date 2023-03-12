@@ -3,7 +3,7 @@ import player from "./player";
 
 const drawPathAndFlightBall = () => {
   if (player.ballIsFlyingNow) return;
-  parabola.updateFlightPath();
+  parabola.drawFlightPath();
 };
 
 function initEvents() {

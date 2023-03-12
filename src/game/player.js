@@ -1,35 +1,34 @@
 import parabola from "../parabola/parabolaCreation";
-import pathControl from "../parabola/parabolaControl";
+import checkParabolaCollision from "../parabola/parabolaCollisionControl";
 import { clearCanvasView, drawImage, ctx } from "../utils/canvas";
 import { ball } from "../utils/images";
 import { pointsCounterView } from "./gameViews";
 
-function Player() {
+const Player = () => {
   const player = {
-    velocityBall: 10,
     animationFlyingBall: null,
     ballIsFlyingNow: false,
-    setVelocityBallFlight: function () {
+    setVelocityBallFlight: () => {
       setVelocityBallFlight(player);
     },
-    getBallFinalFlight: function () {
+    getBallFinalFlight: () => {
       getBallFinalFlight(player);
     },
-    flyingBall: function () {
+    flyingBall: () => {
       flyingBall();
     },
   };
 
   return player;
-}
+};
 
-function setVelocityBallFlight(player) {
-  parabola.pointXOfParabola += player.velocityBall;
-  parabola.y += player.velocityBall;
-}
+const setVelocityBallFlight = () => {
+  parabola.pointXOfParabola += 10;
+  parabola.y += 10;
+};
 
-function getBallFinalFlight(player) {
-  player.animationFlyingBall = requestAnimationFrame(function () {
+const getBallFinalFlight = (player) => {
+  player.animationFlyingBall = requestAnimationFrame(() => {
     getBallFinalFlight(player);
   });
 
@@ -39,22 +38,15 @@ function getBallFinalFlight(player) {
   parabola.calculateFlightPoints();
   drawImage(ctx, ball, parabola.pointXOfParabola, parabola.y);
   player.ballIsFlyingNow = true;
-  pathControl();
-}
+  checkParabolaCollision();
+};
 
-function flyingBall() {
-  //get distance to draw final path
-  parabola.getFinalDistancePath();
-
-  //set default values after drawing final path to final ball animation
+const flyingBall = () => {
+  parabola.getFinalDistance();
   parabola.setInitialConditions();
-
-  //calculating and ball flight animation
-  parabola.recalculateParabolaToFinalFlight();
-
-  //increasing speed of draw ball path
-  parabola.increaseSpeedOFDrawBallPathForNextFound();
-}
+  parabola.recalculateParabola();
+  parabola.increaseSpeed();
+};
 
 const player = Player();
 

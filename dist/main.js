@@ -96,7 +96,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"ball\": () => (/* binding */ ball),\n/* harmony export */   \"dot\": () => (/* binding */ dot),\n/* harmony export */   \"gameOverView\": () => (/* binding */ gameOverView)\n/* harmony export */ });\nvar loadImage = function loadImage(path) {\n  var image = new Image();\n  image.src = path;\n  return image;\n};\nvar gameOverView = loadImage(\"./images/tile_sky_color01.png\");\nvar ball = loadImage(\"/images/object_ball.png\");\nvar dot = loadImage(\"/images/object_dot.png\");\n\n\n//# sourceURL=webpack://one-tap-golf/./src/utils/images.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"ball\": () => (/* binding */ ball),\n/* harmony export */   \"dot\": () => (/* binding */ dot)\n/* harmony export */ });\nvar loadImage = function loadImage(path) {\n  var image = new Image();\n  image.src = path;\n  return image;\n};\nvar ball = loadImage(\"./images/object_ball.png\");\nvar dot = loadImage(\"./images/object_dot.png\");\n\n\n//# sourceURL=webpack://one-tap-golf/./src/utils/images.js?");
 
 /***/ }),
 

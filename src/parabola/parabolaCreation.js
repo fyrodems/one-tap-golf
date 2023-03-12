@@ -2,46 +2,48 @@ import { drawImage, ctx, clearCanvasView } from "../utils/canvas";
 import { ball, dot } from "../utils/images";
 import { pointsCounterView } from "../game/gameViews";
 import player from "../game/player";
+import { isMobileWidth } from "../utils/usefulThings";
 
 class Parabola {
   constructor() {
-    this.a = 0.003;
     this.groundLevel = window.innerHeight - 225;
-    this.pointXOfParabola = 0;
-    this.startPosOfBall = 100;
-    this.startDrawingRangeOfPath = 100;
-    this.parabolaFinalDistance = 200;
     this.parabolaTopPoint = -5;
-    this.vx = 3;
+    this.speed = 3;
+    this.a = 0.005;
     this.b = 0;
     this.c = 0;
     this.y = 0;
+
+    this.startPosOfBall = isMobileWidth ? 100 : 300;
+    this.startDrawingRangeOfPath = isMobileWidth ? 100 : 300;
+    this.parabolaFinalDistance = 200;
+    this.pointXOfParabola = 0;
   }
 
   setInitialConditions() {
     this.b = 1;
     this.c = 1;
-    this.startDrawingRangeOfPath = 100;
+    this.startDrawingRangeOfPath = isMobileWidth ? 100 : 300;
   }
 
   setIncreasePathDistance() {
-    this.startDrawingRangeOfPath += this.vx;
+    this.startDrawingRangeOfPath += this.speed;
   }
 
-  increaseSpeedOFDrawBallPathForNextFound() {
-    this.vx += 1;
+  increaseSpeed() {
+    this.speed += 1;
   }
 
-  recalculateParabolaToFinalFlight() {
+  recalculateParabola() {
     this.calculateShotPath(this.parabolaFinalDistance);
     player.getBallFinalFlight();
   }
 
-  resetVelocityAfterGameOverToInitState() {
-    this.vx = 3;
+  resetVelocity() {
+    this.speed = 3;
   }
 
-  getFinalDistancePath() {
+  getFinalDistance() {
     this.parabolaFinalDistance = this.startDrawingRangeOfPath;
   }
 
@@ -68,8 +70,7 @@ class Parabola {
     this.pointXOfParabola++;
   }
 
-  updateFlightPath() {
-    this.parabolaTopPoint = this.b * this.b - 4 * this.a * this.c;
+  drawFlightPath() {
     clearCanvasView();
     this.calculateShotPath(this.startDrawingRangeOfPath);
     let pointX = this.startPosOfBall;

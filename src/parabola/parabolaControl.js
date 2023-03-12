@@ -1,44 +1,40 @@
 import addHole from "../utils/hole";
-import shootingPath from "./pathCreation";
+import parabola from "./parabolaCreation";
 import player from "../game/player";
 import { drawImage, ctx } from "../utils/canvas";
-import {
-  resetPoints,
-  increaseActualScore,
-  gameOverView,
-} from "../game/gameViews";
+import { resetPoints, incresePoints, gameOverView } from "../game/gameViews";
 import { ball } from "../utils/images";
 
 export default () => {
-  shootingPath.parabolaTopPoint = -5;
+  parabola.parabolaTopPoint = -5;
   const holePosition = document.querySelector(".hole").offsetLeft;
 
-  if (shootingPath.y < 0) {
+  if (parabola.y < 0) {
     cancelAnimationFrame(player.animationFlyingBall);
     resetPoints();
     gameOverView();
-    shootingPath.resetVelocityAfterGameOverToInitState();
+    parabola.resetVelocityAfterGameOverToInitState();
     player.ballIsFlyingNow = false;
   }
 
   if (
-    450 < shootingPath.y &&
-    shootingPath.y < 720 &&
-    shootingPath.pointXOfParabola > holePosition - 30 &&
-    shootingPath.pointXOfParabola < holePosition + 80
+    450 < parabola.y &&
+    parabola.y < 720 &&
+    parabola.pointXOfParabola > holePosition - 30 &&
+    parabola.pointXOfParabola < holePosition + 80
   ) {
     cancelAnimationFrame(player.animationFlyingBall);
-    increaseActualScore();
+    incresePoints();
     addHole();
-    drawImage(ctx, ball, shootingPath.startPosOfBall, shootingPath.groundLevel);
+    drawImage(ctx, ball, parabola.startPosOfBall, parabola.groundLevel);
     player.ballIsFlyingNow = false;
   }
 
-  if (shootingPath.y > 720) {
+  if (parabola.y > 720) {
     cancelAnimationFrame(player.animationFlyingBall);
     resetPoints();
     gameOverView();
-    shootingPath.resetVelocityAfterGameOverToInitState();
+    parabola.resetVelocityAfterGameOverToInitState();
     player.ballIsFlyingNow = false;
   }
 };

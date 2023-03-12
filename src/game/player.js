@@ -1,5 +1,5 @@
-import shootingPath from "../path/pathCreation";
-import pathControl from "../path/pathControl";
+import parabola from "../parabola/parabolaCreation";
+import pathControl from "../parabola/parabolaControl";
 import { clearCanvasView, drawImage, ctx } from "../utils/canvas";
 import { ball } from "../utils/images";
 import { pointsCounterView } from "./gameViews";
@@ -24,8 +24,8 @@ function Player() {
 }
 
 function setVelocityBallFlight(player) {
-  shootingPath.pointXOfParabola += player.velocityBall;
-  shootingPath.y += player.velocityBall;
+  parabola.pointXOfParabola += player.velocityBall;
+  parabola.y += player.velocityBall;
 }
 
 function getBallFinalFlight(player) {
@@ -36,24 +36,24 @@ function getBallFinalFlight(player) {
   setVelocityBallFlight(player);
   clearCanvasView();
   pointsCounterView();
-  shootingPath.calculateFlightPoints();
-  drawImage(ctx, ball, shootingPath.pointXOfParabola, shootingPath.y);
+  parabola.calculateFlightPoints();
+  drawImage(ctx, ball, parabola.pointXOfParabola, parabola.y);
   player.ballIsFlyingNow = true;
   pathControl();
 }
 
 function flyingBall() {
   //get distance to draw final path
-  shootingPath.getFinalDistancePath();
+  parabola.getFinalDistancePath();
 
   //set default values after drawing final path to final ball animation
-  shootingPath.setInitialConditions();
+  parabola.setInitialConditions();
 
   //calculating and ball flight animation
-  shootingPath.recalculateParabolaToFinalFlight();
+  parabola.recalculateParabolaToFinalFlight();
 
   //increasing speed of draw ball path
-  shootingPath.increaseSpeedOFDrawBallPathForNextFound();
+  parabola.increaseSpeedOFDrawBallPathForNextFound();
 }
 
 const player = Player();

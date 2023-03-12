@@ -16,6 +16,4 @@ function drawImage(context, image, valueX, valueY) {
   context.drawImage(image, valueX, valueY, image.width, image.height);
 }
 
-createCanvas();
-
 export { ctx, ctx1, createCanvas, clearCanvasView, drawImage };

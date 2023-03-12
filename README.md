@@ -33,7 +33,7 @@ This project is a simple game that involves hitting a ball into a golf hole. The
   npm install
 ```
 
-4. Start the server
+4. Create main.js using webpack
 
 ```bash
   npm run start

@@ -2,7 +2,6 @@ import { drawImage, ctx, clearCanvasView } from "../utils/canvas";
 import { ball, dot } from "../utils/images";
 import { pointsCounterView } from "../game/gameViews";
 import player from "../game/player";
-import { isMobileWidth } from "../utils/usefulThings";
 
 class Parabola {
   constructor() {
@@ -14,8 +13,9 @@ class Parabola {
     this.c = 0;
     this.y = 0;
 
-    this.startPosOfBall = isMobileWidth ? 100 : 300;
-    this.startDrawingRangeOfPath = isMobileWidth ? 100 : 300;
+    this.isMobileWidth = window.innerWidth < 700;
+    this.startPosOfBall = this.isMobileWidth ? 100 : 300;
+    this.startDrawingRangeOfPath = this.isMobileWidth ? 100 : 300;
     this.parabolaFinalDistance = 200;
     this.pointXOfParabola = 0;
   }
@@ -23,7 +23,7 @@ class Parabola {
   setInitialConditions() {
     this.b = 1;
     this.c = 1;
-    this.startDrawingRangeOfPath = isMobileWidth ? 100 : 300;
+    this.startDrawingRangeOfPath = this.isMobileWidth ? 100 : 300;
   }
 
   setIncreasePathDistance() {

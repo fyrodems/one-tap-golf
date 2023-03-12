@@ -13,7 +13,7 @@ export default () => {
     cancelAnimationFrame(player.animationFlyingBall);
     resetPoints();
     gameOverView();
-    parabola.resetVelocityAfterGameOverToInitState();
+    parabola.resetVelocity();
     player.ballIsFlyingNow = false;
   }
 
@@ -34,7 +34,7 @@ export default () => {
     cancelAnimationFrame(player.animationFlyingBall);
     resetPoints();
     gameOverView();
-    parabola.resetVelocityAfterGameOverToInitState();
+    parabola.resetVelocity();
     player.ballIsFlyingNow = false;
   }
 };

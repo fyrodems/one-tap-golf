@@ -5,8 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack serve",
-    "watch": "npx webpack --watch"
+    "serve": "npx webpack serve",
+    "watch": "npx webpack --watch",
+    "start": "npx webpack"
   },
   "repository": {
     "type": "git",

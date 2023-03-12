@@ -11,7 +11,7 @@ class Parabola {
     this.y = 0;
     this.x = 0;
 
-    this.isMobileWidth = window.innerWidth < 700;
+    this.isMobileWidth = window.innerWidth < 1000;
     this.ballPosition = this.isMobileWidth ? 100 : 300;
     this.parabolaCurve = this.isMobileWidth ? 100 : 300;
     this.parabolaFinalDistance = 200;

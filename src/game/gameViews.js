@@ -24,7 +24,6 @@ const resetPoints = () => {
 const pressButtonToStart = () => {
   ctx1.font = "bolder 40px Arial";
   ctx.fillStyle = "yellow";
-  ctx.fillText("", ctx.canvas.width / 2 - 230, 250);
   ctx.fillText(
     "To play, press and hold down your mouse button,",
     ctx.canvas.width / 2 - 490,

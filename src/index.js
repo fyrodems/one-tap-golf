@@ -11,6 +11,6 @@ createCanvas();
 pressButtonToStart();
 
 setTimeout(() => {
-  drawImage(ctx, ball, parabola.startPosOfBall, parabola.groundLevel);
+  drawImage(ctx, ball, parabola.ballPosition, parabola.groundLevel);
   initEvents();
 }, 500);

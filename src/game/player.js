@@ -1,18 +1,18 @@
 import parabola from "../parabola/parabolaCreation";
-import checkParabolaCollision from "../parabola/parabolaCollisionControl";
+import checkParabolaCollision from "../parabola/parabolaCollision";
 import { clearCanvasView, drawImage, ctx } from "../utils/canvas";
 import { ball } from "../utils/images";
 import { pointsCounterView } from "./gameViews";
 
 const Player = () => {
   const player = {
-    animationFlyingBall: null,
+    animationFlyBall: null,
     ballIsFlyingNow: false,
     setVelocityBallFlight: () => setVelocityBallFlight(),
     getBallFinalFlight: () => {
       getBallFinalFlight(player);
     },
-    flyingBall: () => flyingBall(),
+    flyBall: () => flyBall(),
   };
 
   return player;
@@ -21,25 +21,23 @@ const Player = () => {
 const player = Player();
 
 const setVelocityBallFlight = () => {
-  parabola.pointXOfParabola += 10;
+  parabola.x += 10;
   parabola.y += 10;
 };
 
-const getBallFinalFlight = (player) => {
-  player.animationFlyingBall = requestAnimationFrame(() => {
-    getBallFinalFlight(player);
-  });
+const getBallFinalFlight = () => {
+  player.animationFlyBall = requestAnimationFrame(getBallFinalFlight);
 
   setVelocityBallFlight();
   clearCanvasView();
   pointsCounterView();
   parabola.calculateFlightPoints();
-  drawImage(ctx, ball, parabola.pointXOfParabola, parabola.y);
+  drawImage(ctx, ball, parabola.x, parabola.y);
   player.ballIsFlyingNow = true;
   checkParabolaCollision();
 };
 
-const flyingBall = () => {
+const flyBall = () => {
   parabola.getFinalDistance();
   parabola.setInitialConditions();
   parabola.recalculateParabola();

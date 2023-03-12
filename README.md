@@ -13,10 +13,6 @@ This project is a simple game that involves hitting a ball into a golf hole. The
 
 [Link do GH Pages](https://fyrodems.github.io/one-tap-golf/)
 
-## Feedback
-
-If you have any feedback, please reach out to me at martyna.filipiak@opoczta.pl
-
 ## Run Locally
 
 1. Clone the project
@@ -44,3 +40,7 @@ If you have any feedback, please reach out to me at martyna.filipiak@opoczta.pl
 ```
 
 5. Open server in browser using live server extension
+
+## Feedback
+
+If you have any feedback, please reach out to me at martyna.filipiak@opoczta.pl

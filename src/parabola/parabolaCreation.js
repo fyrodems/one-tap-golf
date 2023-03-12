@@ -6,32 +6,29 @@ import player from "../game/player";
 class Parabola {
   constructor() {
     this.groundLevel = window.innerHeight - 225;
-    this.parabolaTopPoint = -5;
-    this.speed = 3;
+    this.speed = 5;
     this.a = 0.005;
-    this.b = 0;
-    this.c = 0;
     this.y = 0;
+    this.x = 0;
 
     this.isMobileWidth = window.innerWidth < 700;
-    this.startPosOfBall = this.isMobileWidth ? 100 : 300;
-    this.startDrawingRangeOfPath = this.isMobileWidth ? 100 : 300;
+    this.ballPosition = this.isMobileWidth ? 100 : 300;
+    this.parabolaCurve = this.isMobileWidth ? 100 : 300;
     this.parabolaFinalDistance = 200;
-    this.pointXOfParabola = 0;
   }
 
   setInitialConditions() {
     this.b = 1;
     this.c = 1;
-    this.startDrawingRangeOfPath = this.isMobileWidth ? 100 : 300;
+    this.parabolaCurve = this.isMobileWidth ? 100 : 300;
   }
 
-  setIncreasePathDistance() {
-    this.startDrawingRangeOfPath += this.speed;
+  increaseDistance() {
+    this.parabolaCurve += this.speed;
   }
 
   increaseSpeed() {
-    this.speed += 1;
+    this.speed += 1.5;
   }
 
   recalculateParabola() {
@@ -39,49 +36,45 @@ class Parabola {
     player.getBallFinalFlight();
   }
 
-  resetVelocity() {
-    this.speed = 3;
+  resetSpeed() {
+    this.speed = 5;
   }
 
   getFinalDistance() {
-    this.parabolaFinalDistance = this.startDrawingRangeOfPath;
+    this.parabolaFinalDistance = this.parabolaCurve;
   }
 
   calculateShotPath(x2) {
     this.b =
       (this.groundLevel -
         this.groundLevel -
-        this.a * (this.startPosOfBall * this.startPosOfBall - x2 * x2)) /
-      (this.startPosOfBall - x2);
+        this.a * (this.ballPosition * this.ballPosition - x2 * x2)) /
+      (this.ballPosition - x2);
     this.c =
       this.groundLevel -
-      this.a * this.startPosOfBall * this.startPosOfBall -
-      this.b * this.startPosOfBall;
-    this.pointXOfParabola = this.startPosOfBall;
+      this.a * this.ballPosition * this.ballPosition -
+      this.b * this.ballPosition;
+    this.x = this.ballPosition;
     pointsCounterView();
   }
 
   calculateFlightPoints() {
-    this.y = Math.round(
-      this.a * this.pointXOfParabola * this.pointXOfParabola +
-        this.b * this.pointXOfParabola +
-        this.c
-    );
-    this.pointXOfParabola++;
+    this.y = Math.round(this.a * this.x * this.x + this.b * this.x + this.c);
+    this.x++;
   }
 
   drawFlightPath() {
     clearCanvasView();
-    this.calculateShotPath(this.startDrawingRangeOfPath);
-    let pointX = this.startPosOfBall;
-    while (pointX < this.startDrawingRangeOfPath) {
+    this.calculateShotPath(this.parabolaCurve);
+    let pointX = this.ballPosition;
+    while (pointX < this.parabolaCurve) {
       pointX++;
-      this.pointXOfParabola += 50;
+      this.x += 50;
       this.calculateFlightPoints();
-      drawImage(ctx, dot, this.pointXOfParabola + 10, this.y + 10);
+      drawImage(ctx, dot, this.x, this.y);
     }
-    drawImage(ctx, ball, this.startPosOfBall, this.groundLevel);
-    this.setIncreasePathDistance();
+    drawImage(ctx, ball, this.ballPosition, this.groundLevel);
+    this.increaseDistance();
   }
 }
 

@@ -1,4 +1,5 @@
 import parabola from "../parabola/parabolaCreation";
+import { gameOverView } from "./gameViews";
 import player from "./player";
 
 const drawPathAndFlightBall = () => {
@@ -10,7 +11,14 @@ const initEvents = () => {
   const keyDownHandler = () => {
     if (player.ballIsFlyingNow) return;
     const interval = setInterval(() => {
+      console.log(parabola.startDrawingRangeOfPath);
       drawPathAndFlightBall();
+      if (parabola.y > 7697000) {
+        clearInterval(interval);
+        player.flyingBall();
+        gameOverView();
+        document.removeEventListener("mouseup", handleMouseUp);
+      }
     }, 50);
 
     const handleMouseUp = () => {
